@@ -89,8 +89,24 @@ def str5(value):
     # Note:Obviously, you want to use the function round() that you just defined. 
     # However, remember that the rounding takes place at a different place depending 
     # on how big value is. Look at the examples in the specification.
+    num = float(value)
     
-    return ''    # Stub
+    if num < 10:
+        num = str(round(num,3))
+        if len(num) < 5:
+            return num + ('0'*(5-len(num)))
+        else:
+            return num
+    
+    if num >= 10 and num < 100:
+        num = str(round(num,2))
+        if len(num) < 5:
+            return num + '0'
+        else:
+            return num
+    
+    if num >= 100:
+        return str(round(num,1))
 
 
 def str5_cmyk(cmyk):
