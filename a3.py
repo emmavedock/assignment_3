@@ -1,6 +1,6 @@
 # a3.py
-# YOUR NAME(S) AND NETID(S) HERE
-# DATE COMPLETED HERE
+#Emma Vedock-Gross (ev225), Trey Aguirre (tea42)
+#10/6/2016
 """ Functions for Assignment A3"""
 
 import colormodel
@@ -168,6 +168,7 @@ def rgb_to_hsv(rgb):
     Precondition: rgb is an RGB object"""
     # The RGB numbers are in the range 0..255.
     # Change them to range 0..1 by dividing them by 255.0.
+    
     return None  # Stub
 
 
