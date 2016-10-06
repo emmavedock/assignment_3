@@ -5,6 +5,7 @@
 
 import colormodel
 import math
+import ast
 
 def complement_rgb(rgb):
     """Returns: the complement of color rgb.
@@ -49,6 +50,7 @@ def round(number, places):
         num4 = int(num3)
         num5 = float(num4)
         return num5
+    
     if places == 1:
         num2 = number*10
         num3 = num2 + 0.5
@@ -56,6 +58,7 @@ def round(number, places):
         num5 = float(num4)
         num6 = num5/10
         return num6
+    
     if places == 2:
         num2 = number*100
         num3 = num2 + 0.5
@@ -63,6 +66,7 @@ def round(number, places):
         num5 = float(num4)
         num6 = num5/100
         return num6
+    
     if places == 3:
         num2 = number*1000
         num3 = num2 + 0.5
@@ -109,7 +113,7 @@ def str5(value):
     if num >= 100:
         return str(round(num,1))
 
-
+import ast
 def str5_cmyk(cmyk):
     """Returns: String representation of cmyk in the form "(C, M, Y, K)".
     
@@ -125,13 +129,14 @@ def str5_cmyk(cmyk):
     
     Parameter cmtk: the color to convert to a string
     Precondition: cmyk is an CMYK object."""
-    s = list(ast.literal_eval(cmyk))
-    s = list(ast.literal_eval(cmyk))
-    s[0] = float(str5(s[0]))
-    s[1] = float(str5(s[1]))
-    s[2] = float(str5(s[2]))
-    s[3] = float(str5(s[3]))
-    return str(tuple(s))
+    s = list(ast.literal_eval(str(cmyk)))
+    s[0] = str5(s[0])
+    s[1] = str5(s[1])
+    s[2] = str5(s[2])
+    s[3] = str5(s[3])
+    s = str(tuple(s))
+    s = s.replace("'", '')
+    return s
 
 
 def str5_hsv(hsv):
@@ -149,7 +154,13 @@ def str5_hsv(hsv):
     
     Parameter hsv: the color to convert to a string
     Precondition: hsv is an HSV object."""
-    return ''    # Stub
+    s = list(ast.literal_eval(str(hsv)))
+    s[0] = str5(s[0])
+    s[1] = str5(s[1])
+    s[2] = str5(s[2])
+    s = str(tuple(s))
+    s = s.replace("'", '')
+    return s
 
 
 def rgb_to_cmyk(rgb):
@@ -166,7 +177,6 @@ def rgb_to_cmyk(rgb):
 
 def cmyk_to_rgb(cmyk):
     """Returns : color CMYK in space RGB.
-
     Formulae from en.wikipedia.org/wiki/CMYK_color_model.
    
     Parameter cmyk: the color to convert to a RGB object
@@ -178,7 +188,6 @@ def cmyk_to_rgb(cmyk):
 
 def rgb_to_hsv(rgb):
     """Return: color rgb in HSV color space.
-
     Formulae from wikipedia.org/wiki/HSV_color_space.
    
     Parameter rgb: the color to convert to a HSV object
