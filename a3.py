@@ -106,10 +106,15 @@ def str5_cmyk(cmyk):
     then str5_cmyk(cmyk) is '(0.000, 31.37, 31.37, 0.000)'. Note the spaces after the
     commas. These must be there.
     
-    Parameter cmtk: the color to convert to a string
+    Parameter cymk: the color to convert to a string
     Precondition: cmyk is an CMYK object."""
     
-    return ''    # Stub
+    C = str5(cymk.cyan)
+    Y = str5(cymk.yellow)
+    M = str5(cymk.magenta)
+    K = str5(cymk.black)
+    
+    return '(C, M, Y, K)'    # Stub
 
 
 def str5_hsv(hsv):
