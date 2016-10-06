@@ -1,6 +1,6 @@
 # a3.py
-# YOUR NAME(S) AND NETID(S) HERE
-# DATE COMPLETED HERE
+# Emma Vedock-Gross ev225, Trey Aguirre tea42
+# 10/6/16
 """ Functions for Assignment A3"""
 
 import colormodel
@@ -129,6 +129,7 @@ def str5_cmyk(cmyk):
     s[0] = str5(s[0])
     s[1] = str5(s[1])
     s[2] = str5(s[2])
+    s[3] = str5(s[3])
     return str(tuple(s))
 
 
