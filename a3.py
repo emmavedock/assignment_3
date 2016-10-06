@@ -124,8 +124,8 @@ def str5_cmyk(cmyk):
     
     Parameter cmtk: the color to convert to a string
     Precondition: cmyk is an CMYK object."""
-    
-    return ''    # Stub
+    c = cmyk[cmyk.index('(') + 1 : cmyk.index(',')]
+    m = cmyk[(cmyk.index(',') + 1) :
 
 
 def str5_hsv(hsv):
