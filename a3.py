@@ -48,29 +48,30 @@ def round(number, places):
         num3 = num2 + 0.5
         num4 = int(num3)
         num5 = float(num4)
-        num6 = num5
+        return num5
     if places == 1:
         num2 = number*10
         num3 = num2 + 0.5
         num4 = int(num3)
         num5 = float(num4)
         num6 = num5/10
+        return num6
     if places == 2:
         num2 = number*100
         num3 = num2 + 0.5
         num4 = int(num3)
         num5 = float(num4)
         num6 = num5/100
+        return num6
     if places == 3:
         num2 = number*1000
         num3 = num2 + 0.5
         num4 = int(num3)
         num5 = float(num4)
         num6 = num5/1000
+        return num6
+
     
-    return num6
-
-
 def str5(value):
     """ Returns: value as a string, but expand or round to be exactly 5 characters.
     
