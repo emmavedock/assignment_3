@@ -103,7 +103,24 @@ def test_rgb_to_cmyk():
 
 def test_cmyk_to_rgb():
     """Test translation function cmyk_to_rgb"""
-    pass # ADD TESTS TO ME
+    cymk = colormodel.CYMK(0.000,0.000,0.000,0.000);
+    rgb = a3.cmyk_to_rgb(cymk);
+    cornelltest.assert_equals(255, rgb.red)
+    cornelltest.assert_equals(255, rgb.green)
+    cornelltest.assert_equals(255, rgb.blue)
+    
+    cymk = colormodel.CYMK(20.00,50.00,100.0,30.00);
+    rgb = a3.cmyk_to_rgb(cymk);
+    cornelltest.assert_equals(143, rgb.red)
+    cornelltest.assert_equals(89, rgb.green)
+    cornelltest.assert_equals(0, rgb.blue)
+    
+    cymk = colormodel.CYMK(100.0,100.0,100.0,100.0);
+    rgb = a3.cmyk_to_rgb(cymk);
+    cornelltest.assert_equals(0, rgb.red)
+    cornelltest.assert_equals(0, rgb.green)
+    cornelltest.assert_equals(0, rgb.blue)
+    
 
 
 def test_rgb_to_hsv():
