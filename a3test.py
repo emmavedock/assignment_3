@@ -1,6 +1,6 @@
 # a3test.py
-# YOUR NAME(S) AND NETID(S) HERE
-# DATE COMPLETED HERE
+# Emma Vedock-Gross (ev225), Trey Aguirre (tea42)
+# 10/6/2016
 """ Unit Test for Assignment A3"""
 
 import colormodel
@@ -142,6 +142,18 @@ def test_rgb_to_hsv():
     cornelltest.assert_equals(0.000, hsv.hue)
     cornelltest.assert_equals(0.000, hsv.saturation)
     cornelltest.assert_equals(0.000, hsv.value)
+    
+    rgb = colormodel.RGB(250,50,80);
+    hsv = a3.rgb_to_hsv(hsv);
+    cornelltest.assert_equals(351.0, hsv.hue)
+    cornelltest.assert_equals(0.800, hsv.saturation)
+    cornelltest.assert_equals(0.980, hsv.value)
+    
+    rgb = colormodel.RGB(100,70,250);
+    hsv = a3.rgb_to_hsv(hsv);
+    cornelltest.assert_equals(250.0, hsv.hue)
+    cornelltest.assert_equals(0.720, hsv.saturation)
+    cornelltest.assert_equals(0.980, hsv.value)
 
 
 def test_hsv_to_rgb():
