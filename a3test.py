@@ -158,7 +158,47 @@ def test_rgb_to_hsv():
 
 def test_hsv_to_rgb():
     """Test translation function hsv_to_rgb"""
-    pass # ADD TESTS TO ME
+        hsv = colormodel.HSV(300.0,0.532,0.500);
+    rgb = a3.hsv_to_rgb(rgb);
+    cornelltest.assert_equals(128, rgb.red)
+    cornelltest.assert_equals(60, rgb.green)
+    cornelltest.assert_equals(128, rgb.blue)
+    
+    hsv = colormodel.HSV(0.000,0.000,0.000);
+    rgb = a3.hsv_to_rgb(rgb);
+    cornelltest.assert_equals(0, rgb.red)
+    cornelltest.assert_equals(0, rgb.green)
+    cornelltest.assert_equals(0, rgb.blue)
+    
+    hsv = colormodel.HSV(360.0,1.000,1.000);
+    rgb = a3.hsv_to_rgb(rgb);
+    cornelltest.assert_equals(255, rgb.red)
+    cornelltest.assert_equals(0, rgb.green)
+    cornelltest.assert_equals(0, rgb.blue)
+
+    hsv = colormodel.HSV(60.00,1.000,1.000);
+    rgb = a3.hsv_to_rgb(rgb);
+    cornelltest.assert_equals(255, rgb.red)
+    cornelltest.assert_equals(255, rgb.green)
+    cornelltest.assert_equals(0, rgb.blue)
+    
+    hsv = colormodel.HSV(120.0,1.000,1.000);
+    rgb = a3.hsv_to_rgb(rgb);
+    cornelltest.assert_equals(0, rgb.red)
+    cornelltest.assert_equals(255, rgb.green)
+    cornelltest.assert_equals(0, rgb.blue)
+
+    hsv = colormodel.HSV(180.0,1.000,1.000);
+    rgb = a3.hsv_to_rgb(rgb);
+    cornelltest.assert_equals(0, rgb.red)
+    cornelltest.assert_equals(255, rgb.green)
+    cornelltest.assert_equals(255, rgb.blue)
+    
+    hsv = colormodel.HSV(240.0,1.000,1.000);
+    rgb = a3.hsv_to_rgb(rgb);
+    cornelltest.assert_equals(0, rgb.red)
+    cornelltest.assert_equals(0, rgb.green)
+    cornelltest.assert_equals(255, rgb.blue)
 
 
 # Script Code
