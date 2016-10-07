@@ -113,7 +113,7 @@ def str5(value):
     if num >= 100:
         return str(round(num,1))
 
-import ast
+
 def str5_cmyk(cmyk):
     """Returns: String representation of cmyk in the form "(C, M, Y, K)".
     
@@ -172,7 +172,25 @@ def rgb_to_cmyk(rgb):
     Precondition: rgb is an RGB object"""
     # The RGB numbers are in the range 0..255.
     # Change the RGB numbers to the range 0..1 by dividing them by 255.0.
-    return None  # Stub
+    r = rgb.red/255.0
+    g = rgb.green/255.0
+    b = rgb.blue/255.0
+    c = 1 - r
+    m = 1 - g
+    y = 1 - b
+    if (c==1) and (m==1) and (y==1):
+        return colormodel.CMYK(0.0, 0.0, 0.0, 1.0)
+    
+    else:
+        k = min([c,m,y])
+        c = (c-k)/(1-k)
+        m = (m-k)/(1-k)
+        y = (y-k)/(1-k)
+        c = c * 100
+        m = m * 100
+        y = y * 100
+        k = k * 100
+        return colormodel.CMYK(c, m, y, k)
 
 
 def cmyk_to_rgb(cmyk):
@@ -183,7 +201,7 @@ def cmyk_to_rgb(cmyk):
     Precondition: cmyk is an CMYK object."""
     # The CMYK numbers are in the range 0.0..100.0.  Deal with them in the 
     # same way as the RGB numbers in rgb_to_cmyk()
-    return None  # Stub
+    return None #stub
 
 
 def rgb_to_hsv(rgb):
