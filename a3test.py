@@ -6,6 +6,7 @@
 import colormodel
 import cornelltest
 import a3
+import ast
 
 def test_complement():
     """Test function complement"""
@@ -66,10 +67,15 @@ def test_str5():
 def test_str5_color():
     """Test the str5 functions for cmyk and hsv."""
     cornelltest.assert_equals('(98.45, 25.36, 72.80, 1.000)',
-                              a3.str5_cmyk(colormodel.CMYK(98.448, 25.362, 72.8, 1.0)));
+                              a3.str5_cmyk(colormodel.CMYK(98.448, 25.362, 72.8, 1.0)))
+    cornelltest.assert_equals('(0.798, 4.290, 99.98, 18.76)',
+                              a3.str5_cmyk(colormodel.CMYK(0.7979, 4.29, 99.978, 18.755)))
     
     # Tests for round5_hsv (add two)
-
+    cornelltest.assert_equals('(0.000, 0.314, 1.000)',
+                              a3.str5_hsv(colormodel.HSV(0.0, 0.314231, 1.0)))
+    cornelltest.assert_equals('(22.30, 0.696, 0.999)',
+                              a3.str5_hsv(colormodel.HSV(22.298, 0.6959, 0.9989)))
 
 def test_rgb_to_cmyk():
     """Test rgb_to_cmyk"""
