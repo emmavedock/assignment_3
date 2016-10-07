@@ -222,7 +222,37 @@ def rgb_to_hsv(rgb):
     Precondition: rgb is an RGB object"""
     # The RGB numbers are in the range 0..255.
     # Change them to range 0..1 by dividing them by 255.0.
-    return None  # Stub
+    def rgb_to_hsv(rgb):
+    """Return: color rgb in HSV color space.
+    Formulae from wikipedia.org/wiki/HSV_color_space.
+   
+    Parameter rgb: the color to convert to a HSV object
+    Precondition: rgb is an RGB object"""
+    # The RGB numbers are in the range 0..255.
+    # Change them to range 0..1 by dividing them by 255.0.
+    r = rgb.red/255.0
+    g = rgb.green/255.0
+    b = rgb.blue/255.0
+    Max = max(r, g, b)
+    Min = min(r, g, b)
+    if Max==Min:
+        h = 0
+    elif (Max==r) and (g>=b):
+        h = 60.0*((g-b)/(Max-Min))
+    elif (Max==r) and (g<b):
+        h = (60.0*((g-b)/(Max-Min))) + 360.0
+    elif Max==g:
+        h = (60.0*((b-r)/(Max-Min))) + 120.0
+    else:
+        h = (60.0*((r-g)/(Max-Min))) + 240.0
+    
+    if Max==0:
+        s = 0
+    else:
+        s = 1 - (Min/Max)
+    
+    v = Max
+    return colormodel.HSV(h, s, v)
 
 
 def hsv_to_rgb(hsv):
