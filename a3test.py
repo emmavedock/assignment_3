@@ -125,7 +125,23 @@ def test_cmyk_to_rgb():
 
 def test_rgb_to_hsv():
     """Test translation function rgb_to_hsv"""
-    pass # ADD TESTS TO ME
+    rgb = colormodel.RGB(255,255,255);
+    hsv = a3.rgb_to_hsv(hsv);
+    cornelltest.assert_equals(0.000, hsv.hue)
+    cornelltest.assert_equals(0.000, hsv.saturation)
+    cornelltest.assert_equals(1.000, hsv.value)
+    
+    rgb = colormodel.RGB(60,200,10);
+    hsv = a3.rgb_to_hsv(hsv);
+    cornelltest.assert_equals(104.2, hsv.hue)
+    cornelltest.assert_equals(0.950, hsv.saturation)
+    cornelltest.assert_equals(0.784, hsv.value)
+    
+    rgb = colormodel.RGB(0,0,0);
+    hsv = a3.rgb_to_hsv(hsv);
+    cornelltest.assert_equals(0.000, hsv.hue)
+    cornelltest.assert_equals(0.000, hsv.saturation)
+    cornelltest.assert_equals(0.000, hsv.value)
 
 
 def test_hsv_to_rgb():
