@@ -201,7 +201,17 @@ def cmyk_to_rgb(cmyk):
     Precondition: cmyk is an CMYK object."""
     # The CMYK numbers are in the range 0.0..100.0.  Deal with them in the 
     # same way as the RGB numbers in rgb_to_cmyk()
-    return None #stub
+    c = cmyk.cyan/100
+    m = cmyk.magenta/100
+    y = cmyk.yellow/100
+    k = cmyk.black/100
+    r = (1-c)*(1-k)
+    g = (1-m)*(1-k)
+    b = (1-y)*(1-k)
+    r = int(round(r*255, 0))
+    g = int(round(g*255, 0))
+    b = int(round(b*255, 0))
+    return colormodel.RGB(r, g, b)
 
 
 def rgb_to_hsv(rgb):
